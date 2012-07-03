@@ -106,6 +106,8 @@ Kohana::modules(array(
 	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'nosql' 		=>	MODPATH.'nosql',	// NoSQL Database Module
+ 	'twig'  		=>	MODPATH.'twig', 	// Twig Templating Module
 	));
 
 /**
