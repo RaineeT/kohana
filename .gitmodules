@@ -1,0 +1,6 @@
+[submodule "modules/twig"]
+	path = modules/twig
+	url = git@github.com:nichcurtis/KO3-Twig.git
+[submodule "modules/nosql"]
+	path = modules/nosql
+	url = git@github.com:nichcurtis/KO3-NoSQL.git
