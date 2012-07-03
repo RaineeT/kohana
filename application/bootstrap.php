@@ -80,7 +80,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/kohana',
+	'base_url'   => '/kohana/',
 	'index_file' => ''
 ));
 
@@ -101,7 +101,7 @@ Kohana::modules(array(
 	// 'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	// 'database'   => MODPATH.'database',   // Database access
+	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
@@ -114,8 +114,17 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('default', '(<controller>(/<action>(/<id>)))')
+
+// Route::set('default', '(<controller>(/<action>(/<id>)))')
+// 	->defaults(array(
+// 		'controller' => 'welcome',
+// 		'action'     => 'index',
+// 	));
+
+Route::set('nosql_admin_mongo', 'nosql_admin_mongo(/<action>(/<collection>(/<item_name>)))', array(
+		'collection' => '[^/]+',
+		'item_name' => '[^/]+',
+	))
 	->defaults(array(
-		'controller' => 'welcome',
-		'action'     => 'index',
+		'controller'	=>	'admin_mongo'
 	));
