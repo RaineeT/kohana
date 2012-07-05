@@ -98,8 +98,8 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
+	'auth'       => MODPATH.'auth',       // Basic authentication
+	'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
@@ -115,16 +115,16 @@ Kohana::modules(array(
  * defaults for the URI.
  */
 
-// Route::set('default', '(<controller>(/<action>(/<id>)))')
-// 	->defaults(array(
-// 		'controller' => 'welcome',
-// 		'action'     => 'index',
-// 	));
-
-Route::set('nosql_admin_mongo', 'nosql_admin_mongo(/<action>(/<collection>(/<item_name>)))', array(
-		'collection' => '[^/]+',
-		'item_name' => '[^/]+',
-	))
+Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller'	=>	'admin_mongo'
+		'controller' => 'nosql_admin_mongo',
+		'action'     => 'index',
 	));
+
+// Route::set('nosql_admin_mongo', 'nosql_admin_mongo(/<action>(/<collection>(/<item_name>)))', array(
+// 		'collection' => '[^/]+',
+// 		'item_name' => '[^/]+',
+// 	))
+// 	->defaults(array(
+// 		'controller'	=>	'admin_mongo'
+// 	));
